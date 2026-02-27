@@ -47,6 +47,20 @@
             position: relative;
             overflow: auto;
             padding: 60px 0;
+            overflow-x: auto;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 1200px) {
+            .map-viewport {
+                justify-content: flex-start;
+                padding-left: 60px;
+                padding-right: 60px;
+            }
+
+            .community-orbit {
+                flex-shrink: 0;
+            }
         }
 
         .map-grid {
@@ -171,6 +185,69 @@
             z-index: 100;
         }
         .hud-overlay * { pointer-events: auto; }
+
+        @media (max-width: 1200px) {
+            .hud-overlay {
+                position: static;
+                padding: 16px 24px;
+                flex-direction: row;
+                gap: 24px;
+                justify-content: space-between;
+                background: rgba(15, 23, 42, 0.95);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .hud-overlay .glass-panel {
+                padding: 12px 16px;
+                gap: 12px;
+            }
+
+            .hud-overlay .glass-panel h1 {
+                font-size: 1.125rem;
+            }
+
+            .hud-overlay .glass-panel p {
+                font-size: 10px;
+            }
+
+            .hud-overlay .glass-panel .w-14 {
+                width: 40px;
+                height: 40px;
+            }
+
+            .hud-overlay .glass-panel .text-3xl {
+                font-size: 1.5rem;
+            }
+
+            .hud-overlay .glass-panel .text-sm {
+                font-size: 11px;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                overflow: visible;
+            }
+
+            .map-viewport {
+                width: 100vw;
+                height: auto;
+                flex: 1;
+            }
+
+            /* Keep legend floating on small screens */
+            .hud-overlay.bottom-6 {
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+                padding: 12px;
+            }
+        }
 
         .glass-panel {
             background: rgba(15, 23, 42, 0.85);
