@@ -186,19 +186,24 @@
         }
 
         /* Positions */
-        .pos-core-l { --tw-translate-x: -105px; --tw-translate-y: 0; transform: translate(-105px, 0); }
-        .pos-core-r { --tw-translate-x: 105px; --tw-translate-y: 0; transform: translate(105px, 0); }
-        .pos-0      { --tw-translate-x: 0; --tw-translate-y: -360px; transform: translate(0, -360px); }
-        .pos-45     { --tw-translate-x: 254px; --tw-translate-y: -254px; transform: translate(254px, -254px); }
-        .pos-90     { --tw-translate-x: 360px; --tw-translate-y: 0; transform: translate(360px, 0); }
-        .pos-135    { --tw-translate-x: 254px; --tw-translate-y: 254px; transform: translate(254px, 254px); }
-        .pos-180    { --tw-translate-x: 0; --tw-translate-y: 360px; transform: translate(0, 360px); }
-        .pos-225    { --tw-translate-x: -254px; --tw-translate-y: 254px; transform: translate(-254px, 254px); }
-        .pos-270    { --tw-translate-x: -360px; --tw-translate-y: 0; transform: translate(-360px, 0); }
-        .pos-315    { --tw-translate-x: -254px; --tw-translate-y: -254px; transform: translate(-254px, -254px); }
+        .pos-22-5   { --tw-translate-x: 137px; --tw-translate-y: -331px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+        .pos-0      { --tw-translate-x: 0; --tw-translate-y: -360px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+        .pos-45     { --tw-translate-x: 254px; --tw-translate-y: -254px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+        .pos-90     { --tw-translate-x: 360px; --tw-translate-y: 0; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+        .pos-135    { --tw-translate-x: 254px; --tw-translate-y: 254px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+        .pos-180    { --tw-translate-x: 0; --tw-translate-y: 360px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+        .pos-225    { --tw-translate-x: -254px; --tw-translate-y: 254px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+        .pos-270    { --tw-translate-x: -360px; --tw-translate-y: 0; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+        .pos-315    { --tw-translate-x: -254px; --tw-translate-y: -254px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
 
-        .pos-core-l:hover { transform: translate(-105px, 0) scale(1.05); }
-        .pos-core-r:hover { transform: translate(105px, 0) scale(1.05); }
+        /* Inner Ring Positions */
+        .pos-inner-0   { --tw-translate-x: 0; --tw-translate-y: -150px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+        .pos-inner-90  { --tw-translate-x: 150px; --tw-translate-y: 0; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+        .pos-inner-180 { --tw-translate-x: 0; --tw-translate-y: 150px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+        .pos-inner-270 { --tw-translate-x: -150px; --tw-translate-y: 0; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+
+        /* Hover States */
+        .pos-22-5:hover   { transform: translate(137px, -331px) scale(1.05); }
         .pos-0:hover      { transform: translate(0, -360px) scale(1.05); }
         .pos-45:hover     { transform: translate(254px, -254px) scale(1.05); }
         .pos-90:hover     { transform: translate(360px, 0) scale(1.05); }
@@ -207,6 +212,11 @@
         .pos-225:hover    { transform: translate(-254px, 254px) scale(1.05); }
         .pos-270:hover    { transform: translate(-360px, 0) scale(1.05); }
         .pos-315:hover    { transform: translate(-254px, -254px) scale(1.05); }
+
+        .pos-inner-0:hover   { transform: translate(0, -150px) scale(1.05); }
+        .pos-inner-90:hover  { transform: translate(150px, 0) scale(1.05); }
+        .pos-inner-180:hover { transform: translate(0, 150px) scale(1.05); }
+        .pos-inner-270:hover { transform: translate(-150px, 0) scale(1.05); }
 
         .legend-item {
             transition: all 0.3s ease;
@@ -324,8 +334,8 @@
         <div class="community-orbit">
             <div class="orbit-line w-[720px] h-[720px]"></div>
 
-            <!-- CENTRAL INFRASTRUCTURE CLUSTER -->
-            <div class="structure-node pos-core-l" data-status="purple" onclick="openUnit('Power Core', 'Central Power Supply', 'purple')">
+            <!-- INNER INFRASTRUCTURE RING (150px radius) -->
+            <div class="structure-node pos-inner-0" data-status="purple" onclick="openUnit('Power Core', 'Central Power Supply', 'purple')">
                 <div class="structure-shape border-purple-500/40">
                     <div class="status-led bg-purple-500 shadow-[0_0_12px_rgba(168,85,247,0.5)] pulse-core"></div>
                     <i class="fas fa-bolt text-4xl text-slate-400"></i>
@@ -333,7 +343,7 @@
                 </div>
             </div>
 
-            <div class="structure-node pos-core-r" data-status="red" onclick="openUnit('Tech Hub', 'Tech Hub', 'red')">
+            <div class="structure-node pos-inner-90" data-status="red" onclick="openUnit('Tech Hub', 'Tech Hub', 'red')">
                 <div class="structure-shape border-red-500/40">
                     <div class="status-led bg-red-500"></div>
                     <i class="fas fa-tools text-3xl text-slate-400"></i>
@@ -341,7 +351,31 @@
                 </div>
             </div>
 
+            <div class="structure-node pos-inner-180" data-status="green" onclick="openUnit('Cold Storage', 'Storage Unit', 'green')">
+                <div class="structure-shape border-emerald-500/30">
+                    <div class="status-led bg-emerald-500"></div>
+                    <i class="fas fa-snowflake text-4xl text-slate-400"></i>
+                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Cold Storage</span>
+                </div>
+            </div>
+
+            <div class="structure-node pos-inner-270" data-status="green" onclick="openUnit('Storage', 'Storage Unit', 'green')">
+                <div class="structure-shape border-emerald-500/30">
+                    <div class="status-led bg-emerald-500"></div>
+                    <i class="fas fa-box text-4xl text-slate-400"></i>
+                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Storage</span>
+                </div>
+            </div>
+
             <!-- ORBITAL NODES -->
+            <div class="structure-node pos-22-5" data-status="green" onclick="openUnit('Exercise Facility', 'Fitness & Recreation', 'green')">
+                <div class="structure-shape border-emerald-500/30">
+                    <div class="status-led bg-emerald-500"></div>
+                    <i class="fas fa-dumbbell text-4xl text-slate-400"></i>
+                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Exercise</span>
+                </div>
+            </div>
+
             <div class="structure-node pos-0" data-status="green" onclick="openUnit('Unit 01', 'NacelleX Unit', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
