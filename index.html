@@ -276,7 +276,7 @@
             </div>
             <div>
                 <h1 class="font-heading font-bold text-2xl tracking-tight leading-none uppercase text-white">Nacelle<span class="text-blue-400">X</span></h1>
-                <p class="text-[12px] uppercase tracking-[0.25em] font-bold text-slate-400 mt-2">Autonomous Grid Network</p>
+                <p class="text-[12px] uppercase tracking-[0.25em] font-bold text-slate-400 mt-2">A circular economy project</p>
             </div>
         </div>
 
@@ -312,7 +312,7 @@
             <div class="orbit-line w-[720px] h-[720px]"></div>
 
             <!-- CENTRAL INFRASTRUCTURE CLUSTER -->
-            <div class="structure-node pos-core-l" data-status="purple" onclick="openUnit('Power-Core', 'Central Power Supply', 'purple')">
+            <div class="structure-node pos-core-l" data-status="purple" onclick="openUnit('Power Core', 'Central Power Supply', 'purple')">
                 <div class="structure-shape border-purple-500/40">
                     <div class="status-led bg-purple-500 shadow-[0_0_12px_rgba(168,85,247,0.5)] pulse-core"></div>
                     <i class="fas fa-bolt text-4xl text-slate-400"></i>
@@ -320,7 +320,7 @@
                 </div>
             </div>
 
-            <div class="structure-node pos-core-r" data-status="red" onclick="openUnit('Maint-01', 'Tech Hub', 'red')">
+            <div class="structure-node pos-core-r" data-status="red" onclick="openUnit('Tech Hub', 'Tech Hub', 'red')">
                 <div class="structure-shape border-red-500/40">
                     <div class="status-led bg-red-500"></div>
                     <i class="fas fa-tools text-3xl text-slate-400"></i>
@@ -329,7 +329,7 @@
             </div>
 
             <!-- ORBITAL NODES -->
-            <div class="structure-node pos-0" data-status="green" onclick="openUnit('Home-01', 'NacelleX Unit', 'green')">
+            <div class="structure-node pos-0" data-status="green" onclick="openUnit('Unit 01', 'NacelleX Unit', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-home text-4xl text-slate-400"></i>
@@ -337,7 +337,7 @@
                 </div>
             </div>
 
-            <div class="structure-node pos-45" data-status="green" onclick="openUnit('Home-02', 'NacelleX Unit', 'green')">
+            <div class="structure-node pos-45" data-status="green" onclick="openUnit('Unit 02', 'NacelleX Unit', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-home text-4xl text-slate-400"></i>
@@ -345,7 +345,7 @@
                 </div>
             </div>
 
-            <div class="structure-node pos-90" data-status="green" onclick="openUnit('Home-03', 'NacelleX Unit', 'green')">
+            <div class="structure-node pos-90" data-status="green" onclick="openUnit('Unit 03', 'NacelleX Unit', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-home text-4xl text-slate-400"></i>
@@ -353,7 +353,7 @@
                 </div>
             </div>
 
-            <div class="structure-node pos-135" data-status="yellow" onclick="openUnit('Home-04', 'NacelleX Unit', 'yellow')">
+            <div class="structure-node pos-135" data-status="yellow" onclick="openUnit('Unit 04', 'NacelleX Unit', 'yellow')">
                 <div class="structure-shape border-amber-500/30">
                     <div class="status-led bg-amber-500"></div>
                     <i class="fas fa-home text-4xl text-slate-400"></i>
@@ -361,7 +361,7 @@
                 </div>
             </div>
 
-            <div class="structure-node pos-180" data-status="green" onclick="openUnit('Home-05', 'NacelleX Unit', 'green')">
+            <div class="structure-node pos-180" data-status="green" onclick="openUnit('Unit 05', 'NacelleX Unit', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-home text-4xl text-slate-400"></i>
@@ -369,7 +369,7 @@
                 </div>
             </div>
 
-            <div class="structure-node pos-225" data-status="green" onclick="openUnit('School-A', 'Learning Pod', 'green')">
+            <div class="structure-node pos-225" data-status="green" onclick="openUnit('Learning Hub', 'Learning Pod', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-graduation-cap text-4xl text-slate-400"></i>
@@ -377,7 +377,7 @@
                 </div>
             </div>
 
-            <div class="structure-node pos-270" data-status="green" onclick="openUnit('Social-Node', 'Social Space', 'green')">
+            <div class="structure-node pos-270" data-status="green" onclick="openUnit('Social Node', 'Social Space', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-mug-hot text-4xl text-slate-400"></i>
@@ -385,7 +385,7 @@
                 </div>
             </div>
 
-            <div class="structure-node pos-315" data-status="green" onclick="openUnit('Clinic-01', 'Medical Clinic', 'green')">
+            <div class="structure-node pos-315" data-status="green" onclick="openUnit('Medical Clinic', 'Medical Clinic', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-hand-holding-medical text-4xl text-slate-400"></i>
@@ -440,60 +440,72 @@
             </div>
 
             <!-- Modal Content -->
-            <div class="flex-1 overflow-y-auto p-16 lg:p-20 grid grid-cols-1 lg:grid-cols-2 gap-20 custom-scrollbar">
-                <!-- System Controls -->
-                <div class="space-y-14">
+            <div class="flex-1 overflow-y-auto p-16 lg:p-20 space-y-12 custom-scrollbar">
+                <!-- Critical Metrics Section -->
+                <div class="space-y-4">
+                    <h3 class="font-heading text-xs font-bold uppercase tracking-[0.3em] text-slate-400">Critical Metrics</h3>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="p-8 bg-slate-900 rounded-[32px] text-white shadow-lg">
+                            <p class="text-[11px] font-bold uppercase opacity-60 tracking-widest mb-3">Grid Draw</p>
+                            <p class="text-3xl font-bold font-heading">0.82 <span class="text-sm font-normal opacity-60">kW</span></p>
+                        </div>
+                        <div class="p-8 bg-slate-50 rounded-[32px] border border-slate-100">
+                            <p class="text-[11px] font-bold uppercase text-slate-400 tracking-widest mb-3">Interior</p>
+                            <p class="text-3xl font-bold font-heading text-slate-900">72.4<span class="text-sm font-normal opacity-60">°F</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maintenance Status -->
+                <div class="p-10 bg-blue-50 rounded-[40px] border border-blue-100">
+                    <p class="text-[11px] font-bold uppercase text-blue-600 tracking-widest mb-2">Next Inspection</p>
+                    <p class="text-2xl font-bold text-slate-800 mb-2">Oct 24, 2026</p>
+                    <p class="text-sm text-slate-600">242 days remaining • On track ✓</p>
+                </div>
+
+                <!-- Control Interface -->
+                <div class="space-y-4">
                     <h3 class="font-heading text-xs font-bold uppercase tracking-[0.3em] text-slate-400">Control Interface</h3>
-                    <div class="space-y-6">
-                        <div class="flex items-center justify-between p-10 bg-slate-50 rounded-[40px] border border-slate-100">
-                            <div class="flex items-center gap-8">
-                                <div class="w-16 h-16 rounded-3xl bg-white border border-slate-100 flex items-center justify-center text-amber-500 shadow-sm text-3xl"><i class="fas fa-lightbulb"></i></div>
-                                <div><p class="text-xl font-bold text-slate-800">Interior Lighting</p><p class="text-sm text-slate-400 mt-1">Fiberglass Hull LED Array</p></div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                        <div class="flex flex-col items-start justify-between p-6 bg-slate-50 rounded-[24px] border border-slate-100">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-10 h-10 rounded-lg bg-white border border-slate-100 flex items-center justify-center text-amber-500 shadow-sm text-lg"><i class="fas fa-lightbulb"></i></div>
+                                <div><p class="text-xs font-bold text-slate-800">Interior Lighting</p><p class="text-[10px] text-slate-400 mt-0.5 leading-tight">LED Array</p></div>
                             </div>
                             <div class="toggle-switch active" onclick="this.classList.toggle('active')"><div class="toggle-knob"></div></div>
                         </div>
-                        <div class="flex items-center justify-between p-10 bg-slate-50 rounded-[40px] border border-slate-100">
-                            <div class="flex items-center gap-8">
-                                <div class="w-16 h-16 rounded-3xl bg-white border border-slate-100 flex items-center justify-center text-blue-500 shadow-sm text-3xl"><i class="fas fa-fan"></i></div>
-                                <div><p class="text-xl font-bold text-slate-800">Climate Cycle</p><p class="text-sm text-slate-400 mt-1">Air Filtration & Flow</p></div>
+                        <div class="flex flex-col items-start justify-between p-6 bg-slate-50 rounded-[24px] border border-slate-100">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-10 h-10 rounded-lg bg-white border border-slate-100 flex items-center justify-center text-blue-500 shadow-sm text-lg"><i class="fas fa-fan"></i></div>
+                                <div><p class="text-xs font-bold text-slate-800">Climate Cycle</p><p class="text-[10px] text-slate-400 mt-0.5 leading-tight">Air Flow</p></div>
                             </div>
                             <div class="toggle-switch active" onclick="this.classList.toggle('active')"><div class="toggle-knob"></div></div>
                         </div>
-                        <div class="flex items-center justify-between p-10 bg-slate-50 rounded-[40px] border border-slate-100">
-                            <div class="flex items-center gap-8">
-                                <div class="w-16 h-16 rounded-3xl bg-white border border-slate-100 flex items-center justify-center text-purple-600 shadow-sm text-3xl"><i class="fas fa-shield-alt"></i></div>
-                                <div><p class="text-xl font-bold text-slate-800">External Privacy</p><p class="text-sm text-slate-400 mt-1">Shell Opacity Control</p></div>
+                        <div class="flex flex-col items-start justify-between p-6 bg-slate-50 rounded-[24px] border border-slate-100">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-10 h-10 rounded-lg bg-white border border-slate-100 flex items-center justify-center text-purple-600 shadow-sm text-lg"><i class="fas fa-shield-alt"></i></div>
+                                <div><p class="text-xs font-bold text-slate-800">Privacy</p><p class="text-[10px] text-slate-400 mt-0.5 leading-tight">Opacity</p></div>
                             </div>
                             <div class="toggle-switch" onclick="this.classList.toggle('active')"><div class="toggle-knob"></div></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Telemetry Metrics -->
-                <div class="space-y-14">
-                    <h3 class="font-heading text-xs font-bold uppercase tracking-[0.3em] text-slate-400">Sensor Output</h3>
-                    <div class="grid grid-cols-2 gap-8">
-                        <div class="p-10 bg-slate-900 rounded-[40px] text-white shadow-2xl">
-                            <p class="text-[12px] font-bold uppercase opacity-50 tracking-widest mb-4">Grid Draw</p>
-                            <p class="text-4xl font-bold font-heading">0.82 <span class="text-lg font-normal opacity-50">kW</span></p>
-                        </div>
-                        <div class="p-10 bg-slate-50 rounded-[40px] border border-slate-100">
-                            <p class="text-[12px] font-bold uppercase text-slate-400 tracking-widest mb-4">Interior</p>
-                            <p class="text-4xl font-bold font-heading text-slate-900">72.4°F</p>
-                        </div>
-                        
-                        <!-- REPLACED Shell Stability with Maintenance Status Meter -->
-                        <div class="p-10 bg-blue-50 rounded-[40px] border border-blue-100 col-span-2 flex items-center justify-between">
-                            <div class="flex-1">
-                                <p class="text-[12px] font-bold uppercase text-blue-600 tracking-widest mb-4">Unit Health Audit</p>
-                                <p class="text-2xl font-bold text-slate-800">Next Inspection: Oct 24, 2026</p>
-                                <div class="mt-5 w-full bg-blue-200/40 h-3 rounded-full overflow-hidden">
-                                    <div class="bg-blue-500 h-full w-[78%] transition-all duration-1000"></div>
-                                </div>
+                <!-- Collapsible Detailed Telemetry -->
+                <div class="border-t border-gray-200 pt-8">
+                    <button class="w-full flex justify-between items-center p-4 rounded-xl hover:bg-slate-50 transition-colors" onclick="toggleDetailedTelemetry(this)">
+                        <h3 class="font-heading text-xs font-bold uppercase tracking-[0.3em] text-slate-400">📊 Detailed Telemetry</h3>
+                        <i class="fas fa-chevron-down text-slate-400 transition-transform" style="transition: transform 0.3s ease;"></i>
+                    </button>
+                    <div id="detailed-telemetry" class="hidden space-y-3 mt-4">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="p-8 bg-slate-900 rounded-[32px] text-white shadow-lg">
+                                <p class="text-[11px] font-bold uppercase opacity-60 tracking-widest mb-3">Power Output</p>
+                                <p class="text-3xl font-bold font-heading">2.15 <span class="text-sm font-normal opacity-60">kW</span></p>
                             </div>
-                            <div class="ml-10 text-right">
-                                <p class="text-2xl font-bold text-slate-800">242</p>
-                                <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest">Days Left</p>
+                            <div class="p-8 bg-slate-50 rounded-[32px] border border-slate-100">
+                                <p class="text-[11px] font-bold uppercase text-slate-400 tracking-widest mb-3">Efficiency</p>
+                                <p class="text-3xl font-bold font-heading text-slate-900">87.3<span class="text-sm font-normal opacity-60">%</span></p>
                             </div>
                         </div>
                     </div>
@@ -590,6 +602,13 @@
                 loadEl.innerText = (current + drift).toFixed(2);
             }
         }, 3500);
+
+        function toggleDetailedTelemetry(button) {
+            const content = document.getElementById('detailed-telemetry');
+            const icon = button.querySelector('i');
+            content.classList.toggle('hidden');
+            icon.style.transform = content.classList.contains('hidden') ? 'rotate(0)' : 'rotate(180deg)';
+        }
 
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeDetail();
