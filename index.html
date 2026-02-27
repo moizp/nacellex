@@ -71,9 +71,9 @@
             height: 3px;
             background: linear-gradient(90deg, 
                 transparent, 
-                rgba(59, 130, 246, 0.15) 20%, 
-                rgba(255, 255, 255, 0.25) 50%, 
-                rgba(59, 130, 246, 0.15) 80%, 
+                rgba(59, 130, 246, 0.4) 20%, 
+                rgba(255, 255, 255, 0.55) 50%, 
+                rgba(59, 130, 246, 0.4) 80%, 
                 transparent);
             border-radius: 4px;
             filter: blur(2px);
@@ -189,38 +189,23 @@
             pointer-events: none;
         }
 
-        /* Positions */
-        .pos-22-5   { --tw-translate-x: 137px; --tw-translate-y: -331px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
-        .pos-0      { --tw-translate-x: 0; --tw-translate-y: -360px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
-        .pos-45     { --tw-translate-x: 254px; --tw-translate-y: -254px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
-        .pos-90     { --tw-translate-x: 360px; --tw-translate-y: 0; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
-        .pos-135    { --tw-translate-x: 254px; --tw-translate-y: 254px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
-        .pos-180    { --tw-translate-x: 0; --tw-translate-y: 360px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
-        .pos-225    { --tw-translate-x: -254px; --tw-translate-y: 254px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
-        .pos-270    { --tw-translate-x: -360px; --tw-translate-y: 0; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
-        .pos-315    { --tw-translate-x: -254px; --tw-translate-y: -254px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+        /* Dynamic Ring Positioning */
+        .structure-node[data-ring="outer"] {
+            --radius: 360px;
+        }
 
-        /* Inner Ring Positions */
-        .pos-inner-0   { --tw-translate-x: 0; --tw-translate-y: -150px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
-        .pos-inner-90  { --tw-translate-x: 150px; --tw-translate-y: 0; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
-        .pos-inner-180 { --tw-translate-x: 0; --tw-translate-y: 150px; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
-        .pos-inner-270 { --tw-translate-x: -150px; --tw-translate-y: 0; transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+        .structure-node[data-ring="inner"] {
+            --radius: 200px;
+        }
 
-        /* Hover States */
-        .pos-22-5:hover   { transform: translate(137px, -331px) scale(1.05); }
-        .pos-0:hover      { transform: translate(0, -360px) scale(1.05); }
-        .pos-45:hover     { transform: translate(254px, -254px) scale(1.05); }
-        .pos-90:hover     { transform: translate(360px, 0) scale(1.05); }
-        .pos-135:hover    { transform: translate(254px, 254px) scale(1.05); }
-        .pos-180:hover    { transform: translate(0, 360px) scale(1.05); }
-        .pos-225:hover    { transform: translate(-254px, 254px) scale(1.05); }
-        .pos-270:hover    { transform: translate(-360px, 0) scale(1.05); }
-        .pos-315:hover    { transform: translate(-254px, -254px) scale(1.05); }
+        /* Calculate position dynamically based on data attributes */
+        .structure-node[data-angle] {
+            transform: var(--transform-base);
+        }
 
-        .pos-inner-0:hover   { transform: translate(0, -150px) scale(1.05); }
-        .pos-inner-90:hover  { transform: translate(150px, 0) scale(1.05); }
-        .pos-inner-180:hover { transform: translate(0, 150px) scale(1.05); }
-        .pos-inner-270:hover { transform: translate(-150px, 0) scale(1.05); }
+        .structure-node[data-angle]:hover {
+            transform: var(--transform-hover);
+        }
 
         .legend-item {
             transition: all 0.3s ease;
@@ -311,13 +296,13 @@
             <div class="text-left">
                 <p class="text-[12px] font-bold text-slate-400 uppercase tracking-widest mb-2">Network Load</p>
                 <div class="flex items-baseline gap-2">
-                    <p class="text-3xl font-bold text-blue-400" id="global-load">5.44</p>
+                    <p class="text-3xl font-bold text-blue-400" id="global-load">8.44</p>
                     <span class="text-sm font-medium text-slate-500 uppercase">kW</span>
                 </div>
             </div>
             <div class="text-left">
                 <p class="text-[12px] font-bold text-slate-400 uppercase tracking-widest mb-2">Total Units</p>
-                <p class="text-3xl font-bold text-white">10</p>
+                <p class="text-3xl font-bold text-white">13</p>
             </div>
         </div>
     </div>
@@ -338,16 +323,16 @@
         <div class="community-orbit">
             <div class="orbit-line w-[720px] h-[720px]"></div>
 
-            <!-- INNER INFRASTRUCTURE RING (150px radius) -->
-            <div class="structure-node pos-inner-0" data-status="purple" onclick="openUnit('Power Core', 'Central Power Supply', 'purple')">
+            <!-- INNER INFRASTRUCTURE RING (130px radius) -->
+            <div class="structure-node" data-ring="inner" data-status="purple" onclick="openUnit('Power Supply', 'Central Power Supply', 'purple')">
                 <div class="structure-shape border-purple-500/40">
                     <div class="status-led bg-purple-500 shadow-[0_0_12px_rgba(168,85,247,0.5)] pulse-core"></div>
                     <i class="fas fa-bolt text-4xl text-slate-400"></i>
-                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Power Core</span>
+                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Power Supply</span>
                 </div>
             </div>
 
-            <div class="structure-node pos-inner-90" data-status="red" onclick="openUnit('Tech Hub', 'Tech Hub', 'red')">
+            <div class="structure-node" data-ring="inner" data-status="red" onclick="openUnit('Tech Hub', 'Service Unit', 'red')">
                 <div class="structure-shape border-red-500/40">
                     <div class="status-led bg-red-500"></div>
                     <i class="fas fa-tools text-3xl text-slate-400"></i>
@@ -355,7 +340,7 @@
                 </div>
             </div>
 
-            <div class="structure-node pos-inner-180" data-status="green" onclick="openUnit('Cold Storage', 'Storage Unit', 'green')">
+            <div class="structure-node" data-ring="inner" data-status="green" onclick="openUnit('Cold Storage', 'Storage Unit', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-snowflake text-4xl text-slate-400"></i>
@@ -363,7 +348,7 @@
                 </div>
             </div>
 
-            <div class="structure-node pos-inner-270" data-status="green" onclick="openUnit('Storage', 'Storage Unit', 'green')">
+            <div class="structure-node" data-ring="inner" data-status="green" onclick="openUnit('Storage', 'Storage Unit', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-box text-4xl text-slate-400"></i>
@@ -371,76 +356,76 @@
                 </div>
             </div>
 
-            <!-- ORBITAL NODES -->
-            <div class="structure-node pos-22-5" data-status="green" onclick="openUnit('Exercise Facility', 'Fitness & Recreation', 'green')">
+            <!-- ORBITAL NODES (360px radius) -->
+            <div class="structure-node pos-22-5" data-ring="outer" data-status="green" onclick="openUnit('Exercise Room', 'Service Unit', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-dumbbell text-4xl text-slate-400"></i>
-                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Exercise</span>
+                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Exercise Room</span>
                 </div>
             </div>
 
-            <div class="structure-node pos-0" data-status="green" onclick="openUnit('Unit 01', 'NacelleX Unit', 'green')">
+            <div class="structure-node pos-0" data-ring="outer" data-status="green" onclick="openUnit('House 01', 'NacelleX Housing Unit', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-home text-4xl text-slate-400"></i>
-                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Unit 01</span>
+                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">House 01</span>
                 </div>
             </div>
 
-            <div class="structure-node pos-45" data-status="green" onclick="openUnit('Unit 02', 'NacelleX Unit', 'green')">
+            <div class="structure-node pos-45" data-ring="outer" data-status="green" onclick="openUnit('House 02', 'NacelleX Housing Unit', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-home text-4xl text-slate-400"></i>
-                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Unit 02</span>
+                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">House 02</span>
                 </div>
             </div>
 
-            <div class="structure-node pos-90" data-status="green" onclick="openUnit('Unit 03', 'NacelleX Unit', 'green')">
+            <div class="structure-node pos-90" data-ring="outer" data-status="green" onclick="openUnit('House 03', 'NacelleX Housing Unit', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-home text-4xl text-slate-400"></i>
-                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Unit 03</span>
+                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">House 03</span>
                 </div>
             </div>
 
-            <div class="structure-node pos-135" data-status="yellow" onclick="openUnit('Unit 04', 'NacelleX Unit', 'yellow')">
+            <div class="structure-node pos-135" data-ring="outer" data-status="yellow" onclick="openUnit('House 04', 'NacelleX Housing Unit', 'yellow')">
                 <div class="structure-shape border-amber-500/30">
                     <div class="status-led bg-amber-500"></div>
                     <i class="fas fa-home text-4xl text-slate-400"></i>
-                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Unit 04</span>
+                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">House 04</span>
                 </div>
             </div>
 
-            <div class="structure-node pos-180" data-status="green" onclick="openUnit('Unit 05', 'NacelleX Unit', 'green')">
+            <div class="structure-node pos-180" data-ring="outer" data-status="green" onclick="openUnit('House 05', 'NacelleX Housing Unit', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-home text-4xl text-slate-400"></i>
-                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Unit 05</span>
+                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">House 05</span>
                 </div>
             </div>
 
-            <div class="structure-node pos-225" data-status="green" onclick="openUnit('Learning Hub', 'Learning Pod', 'green')">
+            <div class="structure-node pos-225" data-ring="outer" data-status="green" onclick="openUnit('Classroom', 'Service Unit', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-graduation-cap text-4xl text-slate-400"></i>
-                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Learning Hub</span>
+                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Classroom</span>
                 </div>
             </div>
 
-            <div class="structure-node pos-270" data-status="green" onclick="openUnit('Social Node', 'Social Space', 'green')">
+            <div class="structure-node pos-270" data-ring="outer" data-status="green" onclick="openUnit('Cafe', 'Service Unit', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-mug-hot text-4xl text-slate-400"></i>
-                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Social Node</span>
+                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Cafe</span>
                 </div>
             </div>
 
-            <div class="structure-node pos-315" data-status="green" onclick="openUnit('Medical Clinic', 'Medical Clinic', 'green')">
+            <div class="structure-node pos-315" data-ring="outer" data-status="green" onclick="openUnit('Clinic', 'Service Unit', 'green')">
                 <div class="structure-shape border-emerald-500/30">
                     <div class="status-led bg-emerald-500"></div>
                     <i class="fas fa-hand-holding-medical text-4xl text-slate-400"></i>
-                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Medical Clinic</span>
+                    <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[13px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">Clinic</span>
                 </div>
             </div>
         </div>
@@ -781,6 +766,49 @@
                 orbit.style.transform = `scale(${currentZoom})`;
             }
         }
+
+        // Dynamic ring positioning
+        function calculateRingPositions() {
+            const innerNodes = document.querySelectorAll('[data-ring="inner"]');
+            const outerNodes = document.querySelectorAll('[data-ring="outer"]');
+
+            // Calculate positions for inner ring
+            calculatePositions(innerNodes, 130);
+
+            // Calculate positions for outer ring
+            calculatePositions(outerNodes, 360);
+        }
+
+        function calculatePositions(nodes, radius) {
+            const count = nodes.length;
+            nodes.forEach((node, index) => {
+                const angle = (360 / count) * index;
+                const rad = (angle * Math.PI) / 180;
+                const x = Math.sin(rad) * radius;
+                const y = -Math.cos(rad) * radius;
+
+                // Set CSS variables for normal state
+                node.style.setProperty('--tw-translate-x', `${x}px`);
+                node.style.setProperty('--tw-translate-y', `${y}px`);
+                node.style.setProperty(
+                    '--transform-base',
+                    `translate(${x}px, ${y}px)`
+                );
+                node.style.setProperty(
+                    '--transform-hover',
+                    `translate(${x}px, ${y}px) scale(1.05)`
+                );
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', calculateRingPositions);
+
+        // Recalculate if DOM changes (useful for adding/removing units)
+        const observer = new MutationObserver(calculateRingPositions);
+        observer.observe(document.querySelector('.community-orbit'), {
+            childList: true
+        });
     </script>
 </body>
 </html>
