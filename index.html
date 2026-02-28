@@ -46,7 +46,7 @@
             justify-content: center;
             position: relative;
             overflow: auto;
-            padding: 60px 0;
+            padding: 200px 0 120px 600px;
             overflow-x: auto;
             overflow-y: auto;
         }
@@ -118,6 +118,108 @@
             transition: transform 0.2s ease-out;
             transform-origin: center center;
             touch-action: manipulation;
+        }
+
+        .orbit-title {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 28px;
+            font-weight: 600;
+            color: #F8FAFC;
+            white-space: nowrap;
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: 0.05em;
+            z-index: 20;
+        }
+
+        /* Metrics Dashboard */
+        .metrics-dashboard {
+            position: absolute;
+            left: -540px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            z-index: 15;
+            pointer-events: auto;
+        }
+
+        .metrics-row {
+            display: flex;
+            gap: 16px;
+        }
+
+        .metric-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 16px;
+            min-width: 220px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            opacity: 0.7;
+        }
+
+        .metric-arrow {
+            font-size: 16px;
+            margin-left: 6px;
+            display: inline-block;
+            animation: arrowBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes arrowBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        .metric-card[data-metric="waste"] .metric-arrow { color: #10B981; }
+        .metric-card[data-metric="energy"] .metric-arrow { color: #F59E0B; }
+        .metric-card[data-metric="savings"] .metric-arrow { color: #8B5CF6; }
+        .metric-card[data-metric="carbon"] .metric-arrow { color: #06B6D4; }
+
+        .metric-card.full-width {
+            width: 456px;
+            flex-shrink: 0;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .metric-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #3B82F6;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .metric-unit {
+            font-size: 12px;
+            color: #64748B;
+            margin-left: 6px;
+            font-weight: 500;
+        }
+
+        .metric-description {
+            font-size: 13px;
+            color: #CBD5E1;
+            line-height: 1.5;
+            margin-bottom: 8px;
         }
 
         .structure-node {
@@ -379,7 +481,7 @@
             </div>
             <div class="text-left">
                 <p class="text-[12px] font-bold text-slate-400 uppercase tracking-widest mb-2">Total Units</p>
-                <p class="text-3xl font-bold text-white">13</p>
+                <p class="text-3xl font-bold text-white">14</p>
             </div>
         </div>
     </div>
@@ -387,7 +489,7 @@
     <!-- MAIN SPATIAL VIEW -->
     <div id="screen-map" class="map-viewport">
         <div class="map-grid"></div>
-        
+
         <div class="wind-overlay">
             <div class="wind-streak streak-1"></div>
             <div class="wind-streak streak-2"></div>
@@ -398,7 +500,41 @@
         </div>
 
         <div class="community-orbit">
+            <div class="orbit-title">Sustainable Community Development</div>
             <div class="orbit-line w-[720px] h-[720px]"></div>
+
+            <!-- Metrics Dashboard -->
+            <div class="metrics-dashboard">
+                <div class="metric-card full-width">
+                    <div class="metric-description">From the first wind farms in NZ, these repurposed nacelles (engine rooms) continue to help kiwis live sustainably!</div>
+                </div>
+
+                <div class="metrics-row">
+                    <div class="metric-card" data-metric="waste">
+                        <i class="metric-icon fas fa-leaf" style="color: #10B981;"></i>
+                        <div class="metric-label">Total Waste Diverted</div>
+                        <div><span class="metric-value">2,847</span><i class="metric-arrow fas fa-arrow-up"></i><span class="metric-unit">tonnes</span></div>
+                    </div>
+                    <div class="metric-card" data-metric="energy">
+                        <i class="metric-icon fas fa-sun" style="color: #F59E0B;"></i>
+                        <div class="metric-label">Total Clean Energy Generated</div>
+                        <div><span class="metric-value">18.5</span><i class="metric-arrow fas fa-arrow-up"></i><span class="metric-unit">MWh</span></div>
+                    </div>
+                </div>
+
+                <div class="metrics-row">
+                    <div class="metric-card" data-metric="savings">
+                        <i class="metric-icon fas fa-piggy-bank" style="color: #8B5CF6;"></i>
+                        <div class="metric-label">Total Cost Savings</div>
+                        <div><span class="metric-value">$340K</span><i class="metric-arrow fas fa-arrow-up"></i></div>
+                    </div>
+                    <div class="metric-card" data-metric="carbon">
+                        <i class="metric-icon fas fa-leaf" style="color: #06B6D4;"></i>
+                        <div class="metric-label">Total Carbon Credits</div>
+                        <div><span class="metric-value">5,240</span><i class="metric-arrow fas fa-arrow-up"></i><span class="metric-unit">tonnes CO₂</span></div>
+                    </div>
+                </div>
+            </div>
 
             <!-- INNER INFRASTRUCTURE RING (130px radius) -->
             <div class="structure-node" data-ring="inner" data-status="purple" onclick="openUnit('Power Supply', 'Central Power Supply', 'purple')">
